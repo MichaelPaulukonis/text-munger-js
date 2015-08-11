@@ -14,15 +14,13 @@ var markov = function() {
         // this is not right -- the order is always 1, here...
         // plus, well, everything else
         for (var i = 0; i < atoms.length; i++) {
-            var key = '';
-            if (!ngrams[atoms[i]]) {
-                ngrams[atoms[i]] = [];
+            var key = atoms.slice(i, i + 2).join(' ');
+            if (!ngrams[key]) {
+                ngrams[key] = [];
             }
-            var followers = [];
-            for (var j = 0; j < this.order; j++) {
-                if (i+j < atoms.length) followers.push(atoms[i+j]);
+            if (i + 2 < atoms.length) {
+                ngrams[key].push(atoms[i + 2]);
             }
-            ngrams[atoms[i]].push(followers);
         }
         return true;
     };
