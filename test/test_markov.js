@@ -5,7 +5,7 @@ describe("markov tests", function() {
 
 describe("api", function() {
 
-    var m = new markov();
+    var m = new Markov();
 
     it("should have an init() method", function() {
         expect(typeof(m.init)).to.equal('function');
@@ -34,7 +34,7 @@ describe("api", function() {
 
 describe("initialization", function() {
 
-    var m = new markov();
+    var m = new Markov();
     var source = "it will work or it will not work";
 
     it("should not fail on init()", function() {
@@ -51,7 +51,7 @@ describe("initialization", function() {
 
     it("passing a specific order should be retained", function() {
         var order = 5;
-        var m = new markov(order);
+        var m = new Markov(order);
         expect(m.order).to.equal(order);
     });
 
@@ -62,7 +62,7 @@ describe("tokenization", function() {
     // tokenization-level is hard-coded (no params)
     var expected = [ "it", "will", "work", "or", "it", "will", "not", "work" ];
     var source = "it will work or it will not work";
-    var m = new markov();
+    var m = new Markov();
     m.init(source);
 
     it("should turn '" + source + "' into 8 tokens", function() {

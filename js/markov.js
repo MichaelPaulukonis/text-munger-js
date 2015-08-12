@@ -1,4 +1,8 @@
-var markov = function(order) {
+var Markov = function(order) {
+
+    if (!(this instanceof Markov)) {
+        return new Markov(order);
+    }
 
     this.originalText = '';
     this.atoms = [];
@@ -30,13 +34,5 @@ var markov = function(order) {
         var atoms = text.split(' ');
         return atoms;
     };
-
-
-    // return {
-    //     init: init,
-    //     originalText: this.originalText,
-    //     atoms: this.atoms,
-    //     ngrams: this.ngrams
-    // };
 
 };
