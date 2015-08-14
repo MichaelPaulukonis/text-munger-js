@@ -24,10 +24,14 @@ var Markov = function(order) {
         return atoms;
     };
 
+    this.clean = function(text) {
+        return text.replace(/\s+/g, ' ');
+    };
+
     this.init = function(text) {
         this.originalText = text;
         var ngrams = this.ngrams;
-        var atoms = this.splitter(text);
+        var atoms = this.splitter(this.clean(text));
 
         for (var i = 0; i < atoms.length; i++) {
             var key = atoms.slice(i, i + this.order).join(' ');
