@@ -56,7 +56,7 @@ var Markov = function(order) {
         var key = '';
 
         if (ngram.key.atoms.length > 1) {
-            key = ngram.key.atoms.slice(1,ngram.key.atoms.length) + ' ';
+            key = ngram.key.atoms.slice(1,this.order) + ' ';
         }
         key += pick(ngram.followers);
 
